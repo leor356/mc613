@@ -18,30 +18,32 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "04/26/2017 17:43:13"
+// Generated on "04/30/2017 02:48:43"
                                                                         
-// Verilog Self-Checking Test Bench (with test vectors) for design :    Q4
+// Verilog Self-Checking Test Bench (with test vectors) for design :    Banco
 // 
 // Simulation tool : 3rd Party
 // 
 
 `timescale 1 ps/ 1 ps
-module Q4_vlg_sample_tst(
-	A,
+module Banco_vlg_sample_tst(
+	clear,
 	Clk,
-	m,
-	n,
+	DataI,
+	IRS,
+	ORS,
 	sampler_tx
 );
-input  A;
+input  clear;
 input  Clk;
-input  m;
-input  n;
+input [3:0] DataI;
+input [2:0] IRS;
+input [2:0] ORS;
 output sampler_tx;
 
 reg sample;
 time current_time;
-always @(A or Clk or m or n)
+always @(clear or Clk or DataI or IRS or ORS)
                                                                                 
 begin                                                 
  if ($realtime > 0)                                   
@@ -60,20 +62,20 @@ end
 assign sampler_tx = sample;
 endmodule
 
-module Q4_vlg_check_tst (
-	Q4,
+module Banco_vlg_check_tst (
+	DataO,
 	sampler_rx
 );
-input  Q4;
+input [3:0] DataO;
 input sampler_rx;
 
-reg  Q4_expected;
+reg [3:0] DataO_expected;
 
-reg  Q4_prev;
+reg [3:0] DataO_prev;
 
-reg  Q4_expected_prev;
+reg [3:0] DataO_expected_prev;
 
-reg  last_Q4_exp;
+reg [3:0] last_DataO_exp;
 
 reg trigger;
 
@@ -95,25 +97,39 @@ end
 
 always @(trigger)
 begin
-	Q4_prev = Q4;
+	DataO_prev = DataO;
 end
 
 // update expected /o prevs
 
 always @(trigger)
 begin
-	Q4_expected_prev = Q4_expected;
+	DataO_expected_prev = DataO_expected;
 end
 
 
-
-// expected Q4
+// expected DataO[ 3 ]
 initial
 begin
-	Q4_expected = 1'bX;
+	DataO_expected[3] = 1'bX;
+end 
+// expected DataO[ 2 ]
+initial
+begin
+	DataO_expected[2] = 1'bX;
+end 
+// expected DataO[ 1 ]
+initial
+begin
+	DataO_expected[1] = 1'bX;
+end 
+// expected DataO[ 0 ]
+initial
+begin
+	DataO_expected[0] = 1'bX;
 end 
 // generate trigger
-always @(Q4_expected or Q4)
+always @(DataO_expected or DataO)
 begin
 	trigger <= ~trigger;
 end
@@ -123,21 +139,60 @@ begin
 `ifdef debug_tbench
 	$display("Scanning pattern %d @time = %t",i,$realtime );
 	i = i + 1;
-	$display("| expected Q4 = %b | ",Q4_expected_prev);
-	$display("| real Q4 = %b | ",Q4_prev);
+	$display("| expected DataO = %b | ",DataO_expected_prev);
+	$display("| real DataO = %b | ",DataO_prev);
 `endif
 	if (
-		( Q4_expected_prev !== 1'bx ) && ( Q4_prev !== Q4_expected_prev )
-		&& ((Q4_expected_prev !== last_Q4_exp) ||
+		( DataO_expected_prev[0] !== 1'bx ) && ( DataO_prev[0] !== DataO_expected_prev[0] )
+		&& ((DataO_expected_prev[0] !== last_DataO_exp[0]) ||
 			on_first_change[1])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port Q4 :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", Q4_expected_prev);
-		$display ("     Real value = %b", Q4_prev);
+		$display ("ERROR! Vector Mismatch for output port DataO[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", DataO_expected_prev);
+		$display ("     Real value = %b", DataO_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[1] = 1'b0;
-		last_Q4_exp = Q4_expected_prev;
+		last_DataO_exp[0] = DataO_expected_prev[0];
+	end
+	if (
+		( DataO_expected_prev[1] !== 1'bx ) && ( DataO_prev[1] !== DataO_expected_prev[1] )
+		&& ((DataO_expected_prev[1] !== last_DataO_exp[1]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port DataO[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", DataO_expected_prev);
+		$display ("     Real value = %b", DataO_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_DataO_exp[1] = DataO_expected_prev[1];
+	end
+	if (
+		( DataO_expected_prev[2] !== 1'bx ) && ( DataO_prev[2] !== DataO_expected_prev[2] )
+		&& ((DataO_expected_prev[2] !== last_DataO_exp[2]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port DataO[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", DataO_expected_prev);
+		$display ("     Real value = %b", DataO_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_DataO_exp[2] = DataO_expected_prev[2];
+	end
+	if (
+		( DataO_expected_prev[3] !== 1'bx ) && ( DataO_prev[3] !== DataO_expected_prev[3] )
+		&& ((DataO_expected_prev[3] !== last_DataO_exp[3]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port DataO[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", DataO_expected_prev);
+		$display ("     Real value = %b", DataO_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_DataO_exp[3] = DataO_expected_prev[3];
 	end
 
 	trigger <= ~trigger;
@@ -155,82 +210,34 @@ $finish;
 end 
 endmodule
 
-module Q4_vlg_vec_tst();
+module Banco_vlg_vec_tst();
 // constants                                           
 // general purpose registers
-reg A;
+reg clear;
 reg Clk;
-reg m;
-reg n;
+reg [3:0] DataI;
+reg [2:0] IRS;
+reg [2:0] ORS;
 // wires                                               
-wire Q4;
+wire [3:0] DataO;
 
 wire sampler;                             
 
 // assign statements (if any)                          
-Q4 i1 (
+Banco i1 (
 // port map - connection between master ports and signals/registers   
-	.A(A),
+	.clear(clear),
 	.Clk(Clk),
-	.m(m),
-	.n(n),
-	.Q4(Q4)
+	.DataI(DataI),
+	.DataO(DataO),
+	.IRS(IRS),
+	.ORS(ORS)
 );
 
-// A
+// clear
 initial
 begin
-	A = 1'b1;
-	A = #10000 1'b0;
-	A = #10000 1'b1;
-	A = #10000 1'b0;
-	A = #10000 1'b1;
-	A = #30000 1'b0;
-	A = #10000 1'b1;
-	A = #10000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #20000 1'b1;
-	A = #50000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #40000 1'b1;
-	A = #20000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #20000 1'b1;
-	A = #20000 1'b0;
-	A = #30000 1'b1;
-	A = #10000 1'b0;
-	A = #10000 1'b1;
-	A = #10000 1'b0;
-	A = #40000 1'b1;
-	A = #10000 1'b0;
-	A = #30000 1'b1;
-	A = #20000 1'b0;
-	A = #30000 1'b1;
-	A = #20000 1'b0;
-	A = #10000 1'b1;
-	A = #70000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #10000 1'b1;
-	A = #10000 1'b0;
-	A = #60000 1'b1;
-	A = #20000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #10000 1'b1;
-	A = #20000 1'b0;
-	A = #10000 1'b1;
-	A = #20000 1'b0;
-	A = #10000 1'b1;
-	A = #20000 1'b0;
-	A = #20000 1'b1;
-	A = #10000 1'b0;
-	A = #30000 1'b1;
-	A = #30000 1'b0;
-	A = #10000 1'b1;
+	clear = 1'b0;
 end 
 
 // Clk
@@ -240,29 +247,95 @@ begin
 	Clk = #50000 1'b1;
 	#50000;
 end 
-
-// m
+// IRS[ 2 ]
 initial
 begin
-	m = 1'b1;
+	IRS[2] = 1'b0;
 end 
-
-// n
+// IRS[ 1 ]
 initial
 begin
-	n = 1'b1;
+	IRS[1] = 1'b0;
+end 
+// IRS[ 0 ]
+always
+begin
+	IRS[0] = 1'b0;
+	IRS[0] = #500000 1'b1;
+	#500000;
+end 
+// ORS[ 2 ]
+initial
+begin
+	ORS[2] = 1'b0;
+end 
+// ORS[ 1 ]
+initial
+begin
+	ORS[1] = 1'b0;
+end 
+// ORS[ 0 ]
+always
+begin
+	ORS[0] = 1'b0;
+	ORS[0] = #500000 1'b1;
+	#500000;
+end 
+// DataI[ 3 ]
+initial
+begin
+	DataI[3] = 1'b1;
+	DataI[3] = #40000 1'b0;
+	DataI[3] = #320000 1'b1;
+	DataI[3] = #320000 1'b0;
+end 
+// DataI[ 2 ]
+initial
+begin
+	DataI[2] = 1'b1;
+	# 40000;
+	repeat(3)
+	begin
+		DataI[2] = 1'b0;
+		DataI[2] = #160000 1'b1;
+		# 160000;
+	end
+end 
+// DataI[ 1 ]
+initial
+begin
+	DataI[1] = 1'b1;
+	# 40000;
+	repeat(6)
+	begin
+		DataI[1] = 1'b0;
+		DataI[1] = #80000 1'b1;
+		# 80000;
+	end
+end 
+// DataI[ 0 ]
+initial
+begin
+	repeat(12)
+	begin
+		DataI[0] = 1'b1;
+		DataI[0] = #40000 1'b0;
+		# 40000;
+	end
+	DataI[0] = 1'b1;
 end 
 
-Q4_vlg_sample_tst tb_sample (
-	.A(A),
+Banco_vlg_sample_tst tb_sample (
+	.clear(clear),
 	.Clk(Clk),
-	.m(m),
-	.n(n),
+	.DataI(DataI),
+	.IRS(IRS),
+	.ORS(ORS),
 	.sampler_tx(sampler)
 );
 
-Q4_vlg_check_tst tb_out(
-	.Q4(Q4),
+Banco_vlg_check_tst tb_out(
+	.DataO(DataO),
 	.sampler_rx(sampler)
 );
 endmodule

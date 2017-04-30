@@ -20,7 +20,7 @@ end demo_setup;
 architecture Comportamento of demo_setup is
 	signal numout : std_logic_vector(3 downto 0);
 begin
-	bank : Banco port map (SW(2 downto 0), SW(5 downto 3), SW(9 downto 6), KEY(0), KEY(1), numout);
+	bank : Banco port map (SW(2 downto 0), SW(5 downto 3), SW(9 downto 6), KEY(0), NOT(KEY(1)), numout);
 	seg  : hex_7seg port map (numout, HEX0);
 	HEX1 <= "1111111";
 	HEX2 <= "1111111";
