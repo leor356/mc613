@@ -1,0 +1,24 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY Q5 IS -- FF JK Subida
+	PORT ( A, B, Clk : IN STD_LOGIC ;
+			 m, n : IN STD_LOGIC;
+			 Q5 : OUT STD_LOGIC);
+END Q5;
+
+ARCHITECTURE logic OF Q4 IS
+BEGIN
+	PROCESS(A, B, Clk)
+	BEGIN
+		IF Clk'EVENT AND Clk = '1' THEN
+			Q4 <= A;
+		END IF;
+		IF m = '0' THEN
+			Q4 <= '1';
+		END IF;
+		IF n = '0' THEN
+			Q4 <= '0';
+		END IF;
+	END PROCESS;
+END logic;

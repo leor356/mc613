@@ -1,0 +1,19 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY Q3 IS -- latch D Chaveado
+	PORT ( A, Clk : IN STD_LOGIC ;
+			 Q3 : OUT STD_LOGIC);
+END Q3;
+
+ARCHITECTURE logic OF Q3 IS
+BEGIN
+	PROCESS(A, Clk)
+	BEGIN
+		IF Clk = '1' THEN
+			IF A = '1' THEN
+				Q3 <= '1';
+			END IF;
+		END IF;
+	END PROCESS;
+END logic;

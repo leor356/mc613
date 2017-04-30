@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY demo_setup IS
+	PORT(SW : IN std_logic_vector(9 DOWNTO 0);
+		  KEY : IN std_logic_vector(3 DOWNTO 0);
+		  LEDR : OUT std_logic_vector(9 DOWNTO 0); 
+		  LEDG : OUT std_logic_vector(7 DOWNTO 0);
+		  HEX0 : IN std_logic_vector(6 DOWNTO 0);
+		  HEX1 : IN std_logic_vector(6 DOWNTO 0);
+		  HEX2 : IN std_logic_vector(6 DOWNTO 0);
+		  HEX3 : IN std_logic_vector(6 DOWNTO 0);
+		  CLOCK_27 : IN std_logic;
+		  CLOCK_50 : IN std_logic;
+		  CLOCK_24 : IN std_logic;
+		  EXT_CLOCK : IN std_logic);
+END demo_setup;

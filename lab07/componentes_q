@@ -1,0 +1,35 @@
+Q1: Latch SR NANDs
+    A = ~S
+    B = ~R
+    m = 0
+    n = 0
+
+Q2: Latch SR Chaveado
+    A = R
+    B = S
+    m = 0
+    n = 0
+
+Q3: Latch D Chaveado
+    A = D
+    B = 0
+    m = 0
+    n = 0
+
+Q4: FF T Descida
+    A = 0
+    B = T
+    m = ~set
+    n = reset
+
+Q5: FF JK Subida
+    A = J
+    B = K
+    m = set
+    n = reset
+
+Q6: FF T Subida
+    A = 0
+    B = T
+    m = set
+    n = reset

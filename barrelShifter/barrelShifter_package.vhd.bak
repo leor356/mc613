@@ -1,0 +1,8 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY barrelShifter IS
+	PORT (s : IN std_logic_vector(1 DOWNTO 0);
+			y : IN std_logic_vector(3 DOWNTO 0);
+			w : OUT std_logic_vector(3 DOWNTO 0));
+END barrelShifter;

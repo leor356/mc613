@@ -1,0 +1,183 @@
+|demo_setup
+SW[0] => cla4:cla.x[0]
+SW[1] => cla4:cla.x[1]
+SW[2] => cla4:cla.x[2]
+SW[3] => cla4:cla.x[3]
+SW[4] => cla4:cla.y[0]
+SW[5] => cla4:cla.y[1]
+SW[6] => cla4:cla.y[2]
+SW[7] => cla4:cla.y[3]
+SW[8] => cla4:cla.cin
+SW[9] => ~NO_FANOUT~
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
+LEDR[0] <= LEDR[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= LEDR[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= LEDR[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= LEDR[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= LEDR[7].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] <= LEDR[8].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] <= LEDR[9].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= cla4:cla.cout
+LEDG[1] <= <GND>
+LEDG[2] <= <GND>
+LEDG[3] <= <GND>
+LEDG[4] <= <GND>
+LEDG[5] <= <GND>
+LEDG[6] <= <GND>
+LEDG[7] <= <GND>
+HEX0[0] <= display7seg:display.seg1[0]
+HEX0[1] <= display7seg:display.seg1[1]
+HEX0[2] <= display7seg:display.seg1[2]
+HEX0[3] <= display7seg:display.seg1[3]
+HEX0[4] <= display7seg:display.seg1[4]
+HEX0[5] <= display7seg:display.seg1[5]
+HEX0[6] <= display7seg:display.seg1[6]
+HEX1[0] <= HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] <= HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[2] <= HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[3] <= HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[4] <= HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[5] <= HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[6] <= HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] <= HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= HEX3[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] <= HEX3[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] <= HEX3[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] <= HEX3[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] <= HEX3[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[6] <= HEX3[6].DB_MAX_OUTPUT_PORT_TYPE
+CLOCK_50 => ~NO_FANOUT~
+
+
+|demo_setup|cla4:cla
+x[0] => p[0].IN0
+x[0] => g[0].IN0
+x[0] => fullAdder:G1:0:fA.x
+x[1] => p[1].IN0
+x[1] => g[1].IN0
+x[1] => fullAdder:G1:1:fA.x
+x[2] => p[2].IN0
+x[2] => g[2].IN0
+x[2] => fullAdder:G1:2:fA.x
+x[3] => p[3].IN0
+x[3] => g[3].IN0
+x[3] => fullAdder:G1:3:fA.x
+y[0] => p[0].IN1
+y[0] => g[0].IN1
+y[0] => fullAdder:G1:0:fA.y
+y[1] => p[1].IN1
+y[1] => g[1].IN1
+y[1] => fullAdder:G1:1:fA.y
+y[2] => p[2].IN1
+y[2] => g[2].IN1
+y[2] => fullAdder:G1:2:fA.y
+y[3] => p[3].IN1
+y[3] => g[3].IN1
+y[3] => fullAdder:G1:3:fA.y
+cin => cmid.IN1
+cin => cmid.IN1
+cin => cmid.IN1
+cin => cmid.IN1
+cin => fullAdder:G1:0:fA.cin
+cout <= cmid.DB_MAX_OUTPUT_PORT_TYPE
+s[0] <= fullAdder:G1:0:fA.s
+s[1] <= fullAdder:G1:1:fA.s
+s[2] <= fullAdder:G1:2:fA.s
+s[3] <= fullAdder:G1:3:fA.s
+
+
+|demo_setup|cla4:cla|fullAdder:\G1:0:fA
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|cla4:cla|fullAdder:\G1:1:fA
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|cla4:cla|fullAdder:\G1:2:fA
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|cla4:cla|fullAdder:\G1:3:fA
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|display7seg:display
+num[0] => Mux0.IN19
+num[0] => Mux1.IN19
+num[0] => Mux2.IN19
+num[0] => Mux3.IN19
+num[0] => Mux4.IN19
+num[0] => Mux5.IN19
+num[0] => Mux6.IN19
+num[1] => Mux0.IN18
+num[1] => Mux1.IN18
+num[1] => Mux2.IN18
+num[1] => Mux3.IN18
+num[1] => Mux4.IN18
+num[1] => Mux5.IN18
+num[1] => Mux6.IN18
+num[2] => Mux0.IN17
+num[2] => Mux1.IN17
+num[2] => Mux2.IN17
+num[2] => Mux3.IN17
+num[2] => Mux4.IN17
+num[2] => Mux5.IN17
+num[2] => Mux6.IN17
+num[3] => Mux0.IN16
+num[3] => Mux1.IN16
+num[3] => Mux2.IN16
+num[3] => Mux3.IN16
+num[3] => Mux4.IN16
+num[3] => Mux5.IN16
+num[3] => Mux6.IN16
+seg1[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg1[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg1[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg1[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg1[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg1[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg1[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

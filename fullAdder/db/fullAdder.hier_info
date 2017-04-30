@@ -1,0 +1,118 @@
+|ripple8
+x[0] => fullAdder:adder0.x
+x[1] => fullAdder:G1:1:adder.x
+x[2] => fullAdder:G1:2:adder.x
+x[3] => fullAdder:G1:3:adder.x
+x[4] => fullAdder:G1:4:adder.x
+x[5] => fullAdder:G1:5:adder.x
+x[6] => fullAdder:G1:6:adder.x
+x[7] => fullAdder:G1:7:adder.x
+y[0] => fullAdder:adder0.y
+y[1] => fullAdder:G1:1:adder.y
+y[2] => fullAdder:G1:2:adder.y
+y[3] => fullAdder:G1:3:adder.y
+y[4] => fullAdder:G1:4:adder.y
+y[5] => fullAdder:G1:5:adder.y
+y[6] => fullAdder:G1:6:adder.y
+y[7] => fullAdder:G1:7:adder.y
+cin => fullAdder:adder0.cin
+s[0] <= fullAdder:adder0.s
+s[1] <= fullAdder:G1:1:adder.s
+s[2] <= fullAdder:G1:2:adder.s
+s[3] <= fullAdder:G1:3:adder.s
+s[4] <= fullAdder:G1:4:adder.s
+s[5] <= fullAdder:G1:5:adder.s
+s[6] <= fullAdder:G1:6:adder.s
+s[7] <= fullAdder:G1:7:adder.s
+cout <= fullAdder:G1:7:adder.cout
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:adder0
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:1:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:2:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:3:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:4:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:5:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:6:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple8|fullAdder:\G1:7:adder
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+

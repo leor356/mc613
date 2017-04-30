@@ -1,0 +1,32 @@
+LIBRARY ieee;
+LIBRARY work;
+
+USE ieee.std_logic_1164.all;
+USE work.fullAdder_package.all;
+USE work.ripple4_package.all;
+
+ENTITY alu IS
+	PORT (x, y : IN std_logic_vector(3 DOWNTO 0);
+			s : IN std_logic_vector(1 DOWNTO 0);
+			res: OUT std_logic_vector(3 DOWNTO 0);
+			z : OUT std_logic;
+			c : OUT std_logic;
+			v : OUT std_logic;
+			n : OUT std_logic);
+END alu;
+
+ARCHITECTURE add OF alu IS
+	SIGNAL cmid : std_logic_vector(3 DOWNTO 0);
+	SIGNAL yk2 : std_logic_vector(3 DOWNTO 0);
+BEGIN
+	
+	yk2(0) <= y(0) XOR s(0);
+	yk2(1) <= y(1) XOR s(0);
+	yk2(2) <= y(2) XOR s(0);
+	yk2(3) <= y(3) XOR s(0);
+	
+	ripple: ripple4 PORT MAP (x, yk2, s(0), res, c, v);
+	z <= NOT (res(0) OR res(1) OR res(2) OR res(3));
+	n <= res(3);
+	
+END add;	

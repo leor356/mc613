@@ -1,0 +1,17 @@
+|gray_to_bin
+gray[0] => Mux2.IN19
+gray[1] => Mux1.IN10
+gray[1] => Mux2.IN18
+gray[2] => Mux0.IN5
+gray[2] => Mux1.IN9
+gray[2] => Mux2.IN17
+gray[3] => Mux0.IN4
+gray[3] => Mux1.IN8
+gray[3] => Mux2.IN16
+gray[3] => bin[3].DATAIN
+bin[0] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+bin[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+bin[2] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+bin[3] <= gray[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

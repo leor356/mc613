@@ -1,0 +1,8 @@
+Caminho critico CLA4: 14.060ns
+Caminho critico ripple4: 14.158ns
+
+Caminho critico CLAParcial8: 17.544ns
+Caminho critico CLA8: 19.276ns
+Caminho critico ripple8: 15.918ns
+
+O tempo para 4 foi próximo enquanto o tempo para 8 foi maior devido a uma constante inicial de tempo maior, para maiores casos (como 64) é provável que o resultado seja melhor.

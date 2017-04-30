@@ -1,0 +1,9 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY cla4 IS
+	PORT MAP (x	: IN std_logic_vector(3 downto 0);
+				 y : IN std_logic_vector(3 downto 0);
+				 cin : IN std_logic;
+				 cout : OUT std_logic;
+				 s : OUT std_logic_vector(3 downto 0));

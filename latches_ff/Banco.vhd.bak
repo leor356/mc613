@@ -1,0 +1,17 @@
+library ieee;
+library work;
+
+use ieee.std_logic_1164.all;
+use work.RegN_package.all;
+use work.zbuffer_package.all;
+use work.dec3to8_package.all;
+
+entity Banco is
+	port (IRS 	: in std_logic_vector(3 downto 0);	 -- input register selection
+			ORS 	: in std_logic_vector(3 downto 0);	 -- output register selection
+			DataI : in std_logic_vector(3 downto 0);	 -- data input
+			Clk 	: in std_logic;							 -- clock
+			clear : in std_logic;							 -- clear data
+			DataO : out std_logic_vector(3 downto 0)); -- data output
+end Banco;
+

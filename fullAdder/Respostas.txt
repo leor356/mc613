@@ -1,0 +1,3 @@
+h) O ripple carry tem sempre que propagar o carry do primeiro full adder até o último, assim teríamos que o tempo de propagação é proporcional ao número de bits que somamos. Então verificamos os tempos de propagação do ripple de 8, 31 e 64 bits e encontramos os tempos de atraso 15.918ns, 39.322 e 68.162, assim ao calcular por regressão linear encontramos uma reta com coeficiente angular de aproximadamente 0.9.
+
+

@@ -1,0 +1,224 @@
+|demo_setup
+SW[0] => alu:al.y[0]
+SW[1] => alu:al.y[1]
+SW[2] => alu:al.y[2]
+SW[3] => alu:al.y[3]
+SW[4] => alu:al.x[0]
+SW[5] => alu:al.x[1]
+SW[6] => alu:al.x[2]
+SW[7] => alu:al.x[3]
+SW[8] => alu:al.s[0]
+SW[9] => alu:al.s[1]
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
+LEDR[0] <= alu:al.n
+LEDR[1] <= alu:al.v
+LEDR[2] <= alu:al.c
+LEDR[3] <= alu:al.z
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+LEDG[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] <= LEDG[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] <= LEDG[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] <= LEDG[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[7] <= LEDG[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= display7seg:disp.seg1[0]
+HEX0[1] <= display7seg:disp.seg1[1]
+HEX0[2] <= display7seg:disp.seg1[2]
+HEX0[3] <= display7seg:disp.seg1[3]
+HEX0[4] <= display7seg:disp.seg1[4]
+HEX0[5] <= display7seg:disp.seg1[5]
+HEX0[6] <= display7seg:disp.seg1[6]
+HEX1[0] <= display7seg:disp.seg2[0]
+HEX1[1] <= display7seg:disp.seg2[1]
+HEX1[2] <= display7seg:disp.seg2[2]
+HEX1[3] <= display7seg:disp.seg2[3]
+HEX1[4] <= display7seg:disp.seg2[4]
+HEX1[5] <= display7seg:disp.seg2[5]
+HEX1[6] <= display7seg:disp.seg2[6]
+HEX2[0] <= <VCC>
+HEX2[1] <= <VCC>
+HEX2[2] <= <VCC>
+HEX2[3] <= <VCC>
+HEX2[4] <= <VCC>
+HEX2[5] <= <VCC>
+HEX2[6] <= <VCC>
+HEX3[0] <= <VCC>
+HEX3[1] <= <VCC>
+HEX3[2] <= <VCC>
+HEX3[3] <= <VCC>
+HEX3[4] <= <VCC>
+HEX3[5] <= <VCC>
+HEX3[6] <= <VCC>
+CLOCK_50 => ~NO_FANOUT~
+
+
+|demo_setup|alu:al
+x[0] => tmp2.IN0
+x[0] => tmp2.IN0
+x[0] => ripple4:ripple.x[0]
+x[1] => tmp2.IN0
+x[1] => tmp2.IN0
+x[1] => ripple4:ripple.x[1]
+x[2] => tmp2.IN0
+x[2] => tmp2.IN0
+x[2] => ripple4:ripple.x[2]
+x[3] => tmp2.IN0
+x[3] => tmp2.IN0
+x[3] => ripple4:ripple.x[3]
+y[0] => yk[0].IN0
+y[0] => tmp2.IN1
+y[0] => tmp2.IN1
+y[1] => yk[1].IN0
+y[1] => tmp2.IN1
+y[1] => tmp2.IN1
+y[2] => yk[2].IN0
+y[2] => tmp2.IN1
+y[2] => tmp2.IN1
+y[3] => yk[3].IN0
+y[3] => tmp2.IN1
+y[3] => tmp2.IN1
+s[0] => yk[0].IN1
+s[0] => yk[1].IN1
+s[0] => yk[2].IN1
+s[0] => yk[3].IN1
+s[0] => ripple4:ripple.cin
+s[0] => tmp2.OUTPUTSELECT
+s[0] => tmp2.OUTPUTSELECT
+s[0] => tmp2.OUTPUTSELECT
+s[0] => tmp2.OUTPUTSELECT
+s[1] => tmp2[0].LATCH_ENABLE
+s[1] => tmp2[1].LATCH_ENABLE
+s[1] => tmp2[2].LATCH_ENABLE
+s[1] => tmp2[3].LATCH_ENABLE
+s[1] => res.OUTPUTSELECT
+s[1] => res.OUTPUTSELECT
+s[1] => res.OUTPUTSELECT
+s[1] => res.OUTPUTSELECT
+s[1] => z.OUTPUTSELECT
+s[1] => n$latch.LATCH_ENABLE
+res[0] <= res.DB_MAX_OUTPUT_PORT_TYPE
+res[1] <= res.DB_MAX_OUTPUT_PORT_TYPE
+res[2] <= res.DB_MAX_OUTPUT_PORT_TYPE
+res[3] <= res.DB_MAX_OUTPUT_PORT_TYPE
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+c <= ripple4:ripple.cout
+v <= ripple4:ripple.v
+n <= n$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|alu:al|ripple4:ripple
+x[0] => fullAdder:adder0.x
+x[1] => fullAdder:adder1.x
+x[2] => fullAdder:adder2.x
+x[3] => fullAdder:adder3.x
+y[0] => fullAdder:adder0.y
+y[1] => fullAdder:adder1.y
+y[2] => fullAdder:adder2.y
+y[3] => fullAdder:adder3.y
+cin => fullAdder:adder0.cin
+s[0] <= fullAdder:adder0.s
+s[1] <= fullAdder:adder1.s
+s[2] <= fullAdder:adder2.s
+s[3] <= fullAdder:adder3.s
+cout <= fullAdder:adder3.cout
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|alu:al|ripple4:ripple|fullAdder:adder0
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|alu:al|ripple4:ripple|fullAdder:adder1
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|alu:al|ripple4:ripple|fullAdder:adder2
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|alu:al|ripple4:ripple|fullAdder:adder3
+x => smid.IN0
+x => cmid1.IN0
+y => smid.IN1
+y => cmid1.IN1
+cin => s.IN1
+cin => cmid2.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|display7seg:disp
+num[0] => Mux0.IN19
+num[0] => Mux1.IN19
+num[0] => Mux2.IN10
+num[0] => Mux3.IN10
+num[0] => Mux4.IN19
+num[0] => Mux5.IN19
+num[0] => Mux6.IN19
+num[1] => Mux0.IN18
+num[1] => Mux1.IN18
+num[1] => Mux2.IN9
+num[1] => Mux3.IN9
+num[1] => Mux4.IN18
+num[1] => Mux5.IN18
+num[1] => Mux6.IN18
+num[2] => Mux0.IN17
+num[2] => Mux1.IN17
+num[2] => Mux2.IN8
+num[2] => Mux3.IN8
+num[2] => Mux4.IN17
+num[2] => Mux5.IN17
+num[2] => Mux6.IN17
+num[3] => Mux0.IN16
+num[3] => Mux1.IN16
+num[3] => Mux4.IN16
+num[3] => Mux5.IN16
+num[3] => Mux6.IN16
+num[3] => seg2[6].DATAIN
+seg1[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg1[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg1[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg1[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg1[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg1[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg1[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+seg2[0] <= <VCC>
+seg2[1] <= <VCC>
+seg2[2] <= <VCC>
+seg2[3] <= <VCC>
+seg2[4] <= <VCC>
+seg2[5] <= <VCC>
+seg2[6] <= num[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
