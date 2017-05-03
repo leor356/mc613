@@ -1,0 +1,135 @@
+|demo_setup
+SW[0] => Shifter:shifter1.ParIn[0]
+SW[1] => Shifter:shifter1.ParIn[1]
+SW[2] => Shifter:shifter1.ParIn[2]
+SW[3] => Shifter:shifter1.ParIn[3]
+SW[4] => Shifter:shifter1.ParIn[4]
+SW[5] => Shifter:shifter1.ParIn[5]
+SW[6] => ~NO_FANOUT~
+SW[7] => Shifter:shifter1.SerIn
+SW[8] => Shifter:shifter1.modo[0]
+SW[9] => Shifter:shifter1.modo[1]
+KEY[0] => Shifter:shifter1.clk
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
+LEDR[0] <= Shifter:shifter1.ParOut[0]
+LEDR[1] <= Shifter:shifter1.ParOut[1]
+LEDR[2] <= Shifter:shifter1.ParOut[2]
+LEDR[3] <= Shifter:shifter1.ParOut[3]
+LEDR[4] <= Shifter:shifter1.ParOut[4]
+LEDR[5] <= Shifter:shifter1.ParOut[5]
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+LEDG[0] <= LEDG[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] <= LEDG[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] <= LEDG[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] <= LEDG[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDG[7] <= LEDG[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= HEX0[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] <= HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[2] <= HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[3] <= HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[4] <= HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[5] <= HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[6] <= HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] <= HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= HEX3[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] <= HEX3[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] <= HEX3[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] <= HEX3[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] <= HEX3[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[6] <= HEX3[6].DB_MAX_OUTPUT_PORT_TYPE
+CLOCK_50 => ~NO_FANOUT~
+
+
+|demo_setup|Shifter:shifter1
+clk => ffd:G2:0:ffds.CLK
+clk => ffd:G2:1:ffds.CLK
+clk => ffd:G2:2:ffds.CLK
+clk => ffd:G2:3:ffds.CLK
+clk => ffd:G2:4:ffds.CLK
+clk => ffd:G2:5:ffds.CLK
+SerIn => Mux0.IN0
+SerIn => Mux1.IN0
+ParIn[0] => Mux0.IN1
+ParIn[1] => Mux2.IN0
+ParIn[2] => Mux3.IN0
+ParIn[3] => Mux4.IN0
+ParIn[4] => Mux5.IN0
+ParIn[5] => Mux1.IN1
+modo[0] => Mux0.IN3
+modo[0] => Mux1.IN3
+modo[0] => Mux2.IN2
+modo[0] => Mux3.IN2
+modo[0] => Mux4.IN2
+modo[0] => Mux5.IN2
+modo[1] => Mux0.IN2
+modo[1] => Mux1.IN2
+modo[1] => Mux2.IN1
+modo[1] => Mux3.IN1
+modo[1] => Mux4.IN1
+modo[1] => Mux5.IN1
+ParOut[0] <= ffd:G2:0:ffds.S
+ParOut[1] <= ffd:G2:1:ffds.S
+ParOut[2] <= ffd:G2:2:ffds.S
+ParOut[3] <= ffd:G2:3:ffds.S
+ParOut[4] <= ffd:G2:4:ffds.S
+ParOut[5] <= ffd:G2:5:ffds.S
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:0:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:1:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:2:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:3:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:4:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|demo_setup|Shifter:shifter1|ffd:\G2:5:ffds
+D => S~reg0.DATAIN
+CLK => S~reg0.CLK
+S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,5 @@
+
+
+
+PORT (SI, LS, PB, clk: IN std_logic;
+			Q: OUT std_logic);

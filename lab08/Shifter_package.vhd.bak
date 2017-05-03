@@ -1,0 +1,6 @@
+
+
+PORT (clk, SerIn: IN std_logic;
+			ParIn: IN std_logic_vector(n-1 DOWNTO 0);
+			modo: IN std_logic_vector(1 DOWNTO 0);
+			ParOut: BUFFER std_logic_vector(n-1 DOWNTO 0));
