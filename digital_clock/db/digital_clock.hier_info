@@ -1,0 +1,27 @@
+|clock_divisor
+clock => count[0].CLK
+clock => count[1].CLK
+clock => count[2].CLK
+clock => count[3].CLK
+clock => count[4].CLK
+clock => count[5].CLK
+clock => count[6].CLK
+clock => count[7].CLK
+clock => count[8].CLK
+clock => count[9].CLK
+clock => count[10].CLK
+clock => count[11].CLK
+clock => count[12].CLK
+clock => count[13].CLK
+clock => count[14].CLK
+clock => count[15].CLK
+clock => count[16].CLK
+clock => count[17].CLK
+clock => count[18].CLK
+clock => count[19].CLK
+clock => count[20].CLK
+clock => count[21].CLK
+clock => count[22].CLK
+clock_out <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,6 @@
+library ieee;
+library work;
+
+use ieee.std_logic_1164.all;
+use work.clock_divisor_package.all;
+use work.counter_mod10_package.all;
