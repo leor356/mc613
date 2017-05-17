@@ -1,5 +1,5 @@
 Analysis & Synthesis report for digital_clock
-Thu May  4 16:10:52 2017
+Thu May  4 22:13:16 2017
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,8 +14,9 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -41,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May  4 16:10:52 2017           ;
+; Analysis & Synthesis Status        ; Successful - Thu May  4 22:13:16 2017           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; digital_clock                                   ;
-; Top-level Entity Name              ; clock_divisor                                   ;
+; Top-level Entity Name              ; demo_setup                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 31                                              ;
-;     Total combinational functions  ; 31                                              ;
-;     Dedicated logic registers      ; 23                                              ;
-; Total registers                    ; 23                                              ;
-; Total pins                         ; 2                                               ;
+; Total logic elements               ; 154                                             ;
+;     Total combinational functions  ; 152                                             ;
+;     Dedicated logic registers      ; 50                                              ;
+; Total registers                    ; 50                                              ;
+; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,7 +65,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C20F484C7       ;                    ;
-; Top-level entity name                                                      ; clock_divisor      ; digital_clock      ;
+; Top-level entity name                                                      ; demo_setup         ; digital_clock      ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -154,52 +155,64 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                       ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; clock_divisor.vhd                ; yes             ; User VHDL File  ; /home/ec2015/ra175281/MC613/digital_clock/clock_divisor.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++-------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path    ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
++-------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
+; ../bin_7seg/display7seg.vhd         ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/bin_7seg/display7seg.vhd                ;         ;
+; ../bin_7seg/display7seg_package.vhd ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/bin_7seg/display7seg_package.vhd        ;         ;
+; clock_divisor.vhd                   ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/digital_clock/clock_divisor.vhd         ;         ;
+; Relogio.vhd                         ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/digital_clock/Relogio.vhd               ;         ;
+; clock_divisor_package.vhd           ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/digital_clock/clock_divisor_package.vhd ;         ;
+; demo_setup.vhd                      ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/digital_clock/demo_setup.vhd            ;         ;
+; Relogio_package.vhd                 ; yes             ; User VHDL File  ; /home/ec2015/ra171941/Downloads/mc613/digital_clock/Relogio_package.vhd       ;         ;
++-------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimated Total logic elements              ; 31       ;
-;                                             ;          ;
-; Total combinational functions               ; 31       ;
-; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 6        ;
-;     -- 3 input functions                    ; 3        ;
-;     -- <=2 input functions                  ; 22       ;
-;                                             ;          ;
-; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 10       ;
-;     -- arithmetic mode                      ; 21       ;
-;                                             ;          ;
-; Total registers                             ; 23       ;
-;     -- Dedicated logic registers            ; 23       ;
-;     -- I/O registers                        ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 2        ;
-; Embedded Multiplier 9-bit elements          ; 0        ;
-; Maximum fan-out node                        ; Equal0~7 ;
-; Maximum fan-out                             ; 24       ;
-; Total fan-out                               ; 145      ;
-; Average fan-out                             ; 2.59     ;
-+---------------------------------------------+----------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 154   ;
+;                                             ;       ;
+; Total combinational functions               ; 152   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 74    ;
+;     -- 3 input functions                    ; 28    ;
+;     -- <=2 input functions                  ; 50    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 128   ;
+;     -- arithmetic mode                      ; 24    ;
+;                                             ;       ;
+; Total registers                             ; 50    ;
+;     -- Dedicated logic registers            ; 50    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 61    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; SW[9] ;
+; Maximum fan-out                             ; 38    ;
+; Total fan-out                               ; 637   ;
+; Average fan-out                             ; 2.42  ;
++---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |clock_divisor             ; 31 (31)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |clock_divisor      ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
++----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
+; Compilation Hierarchy Node       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Library Name ;
++----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
+; |demo_setup                      ; 152 (0)           ; 50 (0)       ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |demo_setup                                        ; work         ;
+;    |Relogio:clock|               ; 152 (77)          ; 50 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock                          ; work         ;
+;       |clock_divisor:div|        ; 47 (47)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock|clock_divisor:div        ; work         ;
+;       |display7seg:display_out0| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock|display7seg:display_out0 ; work         ;
+;       |display7seg:display_out1| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock|display7seg:display_out1 ; work         ;
+;       |display7seg:display_out2| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock|display7seg:display_out2 ; work         ;
+;       |display7seg:display_out3| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_setup|Relogio:clock|display7seg:display_out3 ; work         ;
++----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -208,14 +221,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 23    ;
+; Total registers                              ; 50    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 20    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |demo_setup|Relogio:clock|sec2[3]  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |demo_setup|Relogio:clock|sec1[2]  ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |demo_setup|Relogio:clock|min2[0]  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; Yes        ; |demo_setup|Relogio:clock|min1[0]  ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |demo_setup|Relogio:clock|hour2[2] ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |demo_setup|Relogio:clock|hour1[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 
 
 +-------------------------------+
@@ -233,12 +260,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu May  4 16:10:51 2017
+    Info: Processing started: Thu May  4 22:13:14 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off digital_clock -c digital_clock
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 0 entities, in source file /home/ec2015/ra175281/MC613/lab08/ffd_package.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /home/ec2015/ra171941/Downloads/mc613/bin_7seg/display7seg.vhd
+    Info (12022): Found design unit 1: display7seg-turnon
+    Info (12023): Found entity 1: display7seg
+Info (12021): Found 1 design units, including 0 entities, in source file /home/ec2015/ra171941/Downloads/mc613/bin_7seg/display7seg_package.vhd
+    Info (12022): Found design unit 1: display7seg_package
+Info (12021): Found 1 design units, including 0 entities, in source file /home/ec2015/ra171941/Downloads/mc613/lab08/ffd_package.vhd
     Info (12022): Found design unit 1: ffd_package
-Info (12021): Found 2 design units, including 1 entities, in source file /home/ec2015/ra175281/MC613/lab08/ffd.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /home/ec2015/ra171941/Downloads/mc613/lab08/ffd.vhd
     Info (12022): Found design unit 1: ffd-comportamento
     Info (12023): Found entity 1: ffd
 Info (12021): Found 2 design units, including 1 entities, in source file sync_counter.vhd
@@ -259,18 +291,57 @@ Info (12021): Found 1 design units, including 0 entities, in source file clock_d
     Info (12022): Found design unit 1: clock_divisor_package
 Info (12021): Found 1 design units, including 0 entities, in source file counter_mod10_package.vhd
     Info (12022): Found design unit 1: counter_mod10_package
-Info (12127): Elaborating entity "clock_divisor" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at clock_divisor.vhd(23): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12021): Found 2 design units, including 1 entities, in source file clock_divisor_4.vhd
+    Info (12022): Found design unit 1: clock_divisor_4-logic
+    Info (12023): Found entity 1: clock_divisor_4
+Info (12021): Found 1 design units, including 0 entities, in source file clock_divisor_4_package.vhd
+    Info (12022): Found design unit 1: clock_divisor_4_package
+Info (12021): Found 2 design units, including 1 entities, in source file demo_setup.vhd
+    Info (12022): Found design unit 1: demo_setup-Comportamento
+    Info (12023): Found entity 1: demo_setup
+Info (12021): Found 1 design units, including 0 entities, in source file Relogio_package.vhd
+    Info (12022): Found design unit 1: Relogio_package
+Info (12127): Elaborating entity "demo_setup" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at demo_setup.vhd(11): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at demo_setup.vhd(12): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "Relogio" for hierarchy "Relogio:clock"
+Info (12128): Elaborating entity "clock_divisor" for hierarchy "Relogio:clock|clock_divisor:div"
+Info (12128): Elaborating entity "display7seg" for hierarchy "Relogio:clock|display7seg:display_out3"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 33 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 31 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 377 megabytes
-    Info: Processing ended: Thu May  4 16:10:52 2017
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+Info (21057): Implemented 215 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 46 output pins
+    Info (21061): Implemented 154 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 360 megabytes
+    Info: Processing ended: Thu May  4 22:13:16 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
