@@ -1,0 +1,7 @@
+
+State Machine - |demo_setup|Maquina2:m1|y
+Name y.d y.c y.b y.a 
+y.a 0 0 0 0 
+y.b 0 0 1 1 
+y.c 0 1 0 1 
+y.d 1 0 0 1 

@@ -1,0 +1,11 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Maquina2 is
+	port (Reset, Clock, w: in std_logic;
+			z: out std_logic);
+end Maquina2;
+
+architecture Comportamento of Maquina2 is
+begin
+end Comportamento;
