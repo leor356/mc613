@@ -1,7 +1,10 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="lab11">
-		<CBX_INST_ENTRY INSTANCE_NAME="|processor|MUX:mux4to1|lpm_mux:$00001" CBX_FILE_NAME="mux_omc.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|processor|Memory:D-Memory|altsyncram:Matriz_rtl_0" CBX_FILE_NAME="altsyncram_pp51.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|vga_text_mode:VGA_CONTROL|ram:VGA_MEMORY2|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_sue1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|processor:m1ps|MUX:mux4to1|lpm_mux:$00001" CBX_FILE_NAME="mux_omc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|ram:SHADOW_RAM|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_lhe1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|vga_text_mode:VGA_CONTROL|ram:VGA_MEMORY1|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_85f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|processor:m1ps|Memory:D-Memory|altsyncram:Matriz_rtl_0" CBX_FILE_NAME="altsyncram_le61.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

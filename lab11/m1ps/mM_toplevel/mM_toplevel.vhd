@@ -3,6 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 library Packages;
 use Packages.Processor.all;
+library work;
+use work.display7seg_package.all;
 
 entity mM_toplevel is
 	port(
@@ -15,7 +17,10 @@ entity mM_toplevel is
 		VGA_G : out std_logic_vector(3 downto 0);
 		VGA_B : out std_logic_vector(3 downto 0);
 		LEDR : out std_logic_vector(9 downto 0);
-		LEDG : out std_logic_vector(7 downto 0)
+		LEDG : out std_logic_vector(7 downto 0);
+		HEX1 : out std_logic_vector(6 downto 0);
+		HEX2 : out std_logic_vector(6 downto 0);
+		HEX3 : out std_logic_vector(6 downto 0)
 	);
 end mM_toplevel;
 
@@ -25,6 +30,7 @@ architecture a_mM_toplevel of mM_toplevel is
 			
 		signal pc, ir, dbus, rs1, rs2 : std_logic_vector(31 downto 0);
 		signal stat : std_logic_vector(3 downto 0);
+		signal io_out_aux : std_logic_vector(31 downto 0);
 		
 begin
 	reset <= not KEY(3);
@@ -43,13 +49,13 @@ begin
 		port map  (
 			clock => mclk,
 			reset => reset,
-			IO_IN => (others => '0'),
+			IO_IN => "00000000000000000000000" & SW(9 downto 1),
 			DBus => dbus,
 			RSource1 => rs1,			
-			RSource2 => rs2, 			
-			-- IO_OUT => ,				
+			RSource2 => rs2,
+			IO_OUT => io_out_aux,
 			IM_address => pc,			
-			-- IM_instruction_out => ,	
+			--IM_instruction_out => ,	---
 			instruction => ir,			
 			stat_CVNZ => stat,	
 			Pc_Ld	=> pcld,	
@@ -58,13 +64,17 @@ begin
 			ALU_2_DBus	=> alu2dbus,		
 			DM_Rd => dmrd,				
 			DM_Wr => dmwr,				
-			-- PC_Ld_En ,		
+			--PC_Ld_En , ---
 			Reg_2_IO => reg2io,			
 			IO_2_Reg => io2reg,	
 			Reg_Wr	=> regwr,			
 			Stat_Wr	=> statwr,			
 			DM_2_DBus => dm2dbus		
 		);
+		
+		d1: display7seg port map(io_out_aux(3 downto 0), HEX1);
+		d2: display7seg port map(io_out_aux(7 downto 4), HEX2);
+		d3: display7seg port map(io_out_aux(11 downto 8), HEX3);
 		
 	VGA_R <= "0000";
 	VGA_B <= "0000";

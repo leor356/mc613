@@ -1,6 +1,16 @@
 
-State Machine - |processor|UC:UC|current_state
+State Machine - |mM_toplevel|processor:m1ps|UC:UC|current_state
 Name current_state.EX current_state.DECODE current_state.FETCH 
 current_state.FETCH 0 0 0 
 current_state.DECODE 0 1 1 
 current_state.EX 1 0 1 
+
+State Machine - |mM_toplevel|mM:m1ps_Monitor|m1ps2vga:m1ps_2_VGA|y
+Name y.MEMCOPY y.MEMFETCH y.GENERALCOPY y.REGCOPY y.REGFETCH y.SIGNALCOPY y.IDLE 
+y.IDLE 0 0 0 0 0 0 0 
+y.SIGNALCOPY 0 0 0 0 0 1 1 
+y.REGFETCH 0 0 0 0 1 0 1 
+y.REGCOPY 0 0 0 1 0 0 1 
+y.GENERALCOPY 0 0 1 0 0 0 1 
+y.MEMFETCH 0 1 0 0 0 0 1 
+y.MEMCOPY 1 0 0 0 0 0 1 

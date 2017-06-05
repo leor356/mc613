@@ -7,8 +7,8 @@ ENTITY UC IS
 	PORT (
 		clear,
 		clock			: IN	STD_LOGIC;
-		instruction		: IN	STD_LOGIC_VECTOR (2 DOWNTO 0);
-		IR_Ld, PC_Inc, ALU_2_DBus, DM_Rd, DM_Wr, PC_Ld_En, Reg_2_IO, IO_2_Reg, Reg_Wr, Stat_Wr,
+		instruction		: IN	STD_LOGIC_VECTOR (5 DOWNTO 0);
+		IR_Ld, PC_Inc, ALU_2_DBus, DM_Rd, DM_Wr, PC_Ld_En, Reg_2_IO, IO_2_Reg, Reg_Wr, Stat_Wr, Op_Addi,
 		DM_2_DBus		: OUT	STD_LOGIC		
 	);
 END ENTITY;
@@ -43,6 +43,7 @@ BEGIN
 			Reg_2_IO	<= '0';
 			IO_2_Reg	<= '0';
 			Reg_Wr		<= '0';
+			Op_Addi <= '0';
 			Stat_Wr		<= '0';
 			DM_2_DBus	<= '0';
 			CASE current_state IS
@@ -51,10 +52,12 @@ BEGIN
 				PC_Inc		<= '1';
 				
 				current_state <= DECODE;
+			WHEN HALT =>
+				current_state <= HALT;
 			WHEN DECODE =>
 				current_state <= EX;
 			WHEN EX =>
-				CASE instruction IS
+				CASE instruction(5 downto 3) IS
 				WHEN "000" =>
 					DM_Rd		<= '1';
 					Reg_Wr		<= '1';
@@ -63,9 +66,15 @@ BEGIN
 					ALU_2_DBus	<= '1';
 					Reg_Wr		<= '1';
 					Stat_Wr		<= '1';
+					case instruction(2 downto 0) is
+					when "100" =>
+						Op_Addi <= '1';
+					when others =>
+					end case;
 				WHEN "010" =>
 					DM_Wr		<= '1';
 				WHEN "011" =>
+					current_state <= HALT;
 				WHEN "100" =>
 					IO_2_Reg	<= '1';
 					Reg_Wr		<= '1';				
