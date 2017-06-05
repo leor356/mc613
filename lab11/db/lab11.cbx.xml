@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="lab11">
+		<CBX_INST_ENTRY INSTANCE_NAME="|processor|MUX:mux4to1|lpm_mux:$00001" CBX_FILE_NAME="mux_omc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|processor|Memory:D-Memory|altsyncram:Matriz_rtl_0" CBX_FILE_NAME="altsyncram_pp51.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
