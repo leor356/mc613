@@ -74,7 +74,12 @@ BEGIN
 				WHEN "010" =>
 					DM_Wr		<= '1';
 				WHEN "011" =>
-					current_state <= HALT;
+					case instruction(2 downto 0) is
+					when "000" =>
+						current_state <= HALT;
+					when others =>
+					end case;
+					
 				WHEN "100" =>
 					IO_2_Reg	<= '1';
 					Reg_Wr		<= '1';				
