@@ -2,6 +2,7 @@
 <LOG_ROOT>
 	<PROJECT NAME="lab11">
 		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|vga_text_mode:VGA_CONTROL|ram:VGA_MEMORY2|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_sue1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|processor:m1ps|BUSMUX:inst14|lpm_mux:$00000" CBX_FILE_NAME="mux_9oc.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|processor:m1ps|MUX:mux4to1|lpm_mux:$00001" CBX_FILE_NAME="mux_omc.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|ram:SHADOW_RAM|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_lhe1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|mM_toplevel|mM:m1ps_Monitor|vga_text_mode:VGA_CONTROL|ram:VGA_MEMORY1|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_85f1.tdf"/>

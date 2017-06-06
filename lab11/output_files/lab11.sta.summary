@@ -3,12 +3,12 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'freqdiv:CLOCKDIVISOR|tmpclk'
-Slack : -20.987
-TNS   : -10340.607
+Slack : -20.850
+TNS   : -10186.769
 
 Type  : Slow Model Setup 'KEY[0]'
-Slack : -13.331
-TNS   : -4672.183
+Slack : -13.266
+TNS   : -4577.246
 
 Type  : Slow Model Setup 'CLOCK_50'
 Slack : 2.116
@@ -18,12 +18,12 @@ Type  : Slow Model Hold 'CLOCK_50'
 Slack : -1.864
 TNS   : -1.864
 
+Type  : Slow Model Hold 'KEY[0]'
+Slack : -0.049
+TNS   : -0.147
+
 Type  : Slow Model Hold 'freqdiv:CLOCKDIVISOR|tmpclk'
 Slack : 0.445
-TNS   : 0.000
-
-Type  : Slow Model Hold 'KEY[0]'
-Slack : 0.591
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'freqdiv:CLOCKDIVISOR|tmpclk'
@@ -32,19 +32,19 @@ TNS   : -2762.894
 
 Type  : Slow Model Minimum Pulse Width 'KEY[0]'
 Slack : -2.064
-TNS   : -818.959
+TNS   : -820.181
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.631
 TNS   : -2.853
 
 Type  : Fast Model Setup 'freqdiv:CLOCKDIVISOR|tmpclk'
-Slack : -7.420
-TNS   : -3419.559
+Slack : -7.279
+TNS   : -3322.910
 
 Type  : Fast Model Setup 'KEY[0]'
-Slack : -4.548
-TNS   : -1538.647
+Slack : -4.490
+TNS   : -1481.037
 
 Type  : Fast Model Setup 'CLOCK_50'
 Slack : 1.343
@@ -54,17 +54,17 @@ Type  : Fast Model Hold 'CLOCK_50'
 Slack : -0.963
 TNS   : -0.963
 
+Type  : Fast Model Hold 'KEY[0]'
+Slack : 0.101
+TNS   : 0.000
+
 Type  : Fast Model Hold 'freqdiv:CLOCKDIVISOR|tmpclk'
 Slack : 0.215
 TNS   : 0.000
 
-Type  : Fast Model Hold 'KEY[0]'
-Slack : 0.242
-TNS   : 0.000
-
 Type  : Fast Model Minimum Pulse Width 'KEY[0]'
 Slack : -2.000
-TNS   : -716.222
+TNS   : -717.222
 
 Type  : Fast Model Minimum Pulse Width 'freqdiv:CLOCKDIVISOR|tmpclk'
 Slack : -1.627

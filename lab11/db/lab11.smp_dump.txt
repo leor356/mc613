@@ -1,5 +1,5 @@
 
-State Machine - |mM_toplevel|processor:m1ps|UC:UC|current_state
+State Machine - |mM_toplevel|processor:m1ps|UC:inst2|current_state
 Name current_state.EX current_state.DECODE current_state.FETCH 
 current_state.FETCH 0 0 0 
 current_state.DECODE 0 1 1 
